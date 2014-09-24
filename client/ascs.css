@@ -1,0 +1,9 @@
+li.dropdown.active.open > a, 
+li.dropdown.active.open > ul.dropdown-menu a:hover,
+li.dropdown.open > a,
+ li.dropdown.open > ul.dropdown-menu a:hover
+{
+  color: #ddd;
+  background-color: #b91773;
+  border-color: #fff;
+}

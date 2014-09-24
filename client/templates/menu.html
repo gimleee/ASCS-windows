@@ -1,0 +1,35 @@
+<template name="menu">
+	<div class="navbar navbar-static-top">
+	    <div class="navbar-inner">
+	        <a class="brand" href="#">A&S Checkout</a>
+	        <ul class="nav">
+	            <li class="active"><a href="/">Home</a></li>
+	            <li><a href="/checkout-form.html">Checkout Form</a></li>
+	            <li><a href="/checkout-viewer">Checkout-viewer</a></li>
+	        </ul>
+          <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" style ="float: right">
+          <a href="#" class="dropdown-toggle" s data-toggle="dropdown">{{currentRole}} <span class="caret"></span></a>
+          
+          <ul  class="dropdown-menu" role="menu">
+            
+            <li><a href="#" class = "role">Guest</a></li>
+            <li><a href="#" class ="role">Authenticated</a></li>
+            <li><a href="#" class = "role">Admin</a></li>
+
+           
+          </ul>
+        </li>
+    </ul>
+
+	    </div>
+
+
+
+	</div>
+
+
+	
+
+
+</template>
