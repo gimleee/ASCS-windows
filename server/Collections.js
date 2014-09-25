@@ -1,11 +1,11 @@
 items = new Meteor.Collection('checkout_items');
 
-function item(name, category, bucket, container)
+function item(name, category, brand, model)
 {
-	this.name = name;
+	this.name = name;	
 	this.category = category;
-	this.bucket = bucket;
-	this.container = container;
+	this.brand = brand;
+	this.model = model;
 
 
 	this.lastcheckout = NULL;
@@ -21,5 +21,5 @@ Meteor.publish('checkout_items', function(role)
 	return checkout_items;
 
 	else
-		console.log("publish error -- do not have permission to view content");
+		console.log("publish error -- do not have permission to view checkout items");
 });
