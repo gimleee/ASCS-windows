@@ -18,9 +18,3 @@ Meteor.methods({
   console.log(role);
 }
 })
-
-Router.map(function()
-{
-  this.route('checkout-form');
-
-});

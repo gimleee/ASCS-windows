@@ -1,7 +1,3 @@
-Meteor.startup(function () {
-	Session.set('role', "Guest");
-});
-
 Template.menu.events({
   "click .role" : function(e,tmpl)
   {
@@ -14,12 +10,3 @@ Template.menu.helpers({
     return Session.get("role");
   }
 })
-
-Router.map( function()
-{
-  this.route('home', {path: '/'});
-  this.route('checkout-form');
-  this.route('checkout-viewer');
-  
-
-});

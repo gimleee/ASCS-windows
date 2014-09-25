@@ -6,3 +6,6 @@
 standard-app-packages
 insecure
 bootstrap
+iron:router
+blaze
+

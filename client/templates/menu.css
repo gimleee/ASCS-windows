@@ -1,0 +1,10 @@
+
+.dropdown-toggle,
+.dropdown-toggle> .open,
+.dropdown:hover,
+.dropdown:focus
+{
+  color: #FFFFFF;
+  background-color: #2D2D2E;
+  border-color: #fff;
+}
