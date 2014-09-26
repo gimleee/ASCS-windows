@@ -7,6 +7,7 @@ Template.menu.events({
   {
     var success = Meteor.call("setRole", e.target.innerHTML);
     Session.set('role', e.target.innerHTML);
+    Meteor.subscribe("checkout_items", Session.get('role'));
   }
 })
 Template.menu.helpers({
@@ -15,11 +16,5 @@ Template.menu.helpers({
   }
 })
 
-Router.map( function()
-{
-  this.route('home', {path: '/'});
-  this.route('checkout-form');
-  this.route('checkout-viewer');
-  
 
-});
+

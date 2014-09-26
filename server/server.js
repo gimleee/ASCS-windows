@@ -15,6 +15,20 @@ Meteor.methods({
     
     
   }
-  console.log(role);
 }
-})
+});
+  
+Meteor.methods({
+  addItem: function(item2add)
+{
+  if(Session.get('role') === ("Admin"|| "Authenticated"))
+  {
+    var id = items.insert(item2add);
+    console.log(id + " was added");
+    return true;
+  }  
+}
+});
+
+
+

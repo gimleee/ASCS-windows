@@ -1,6 +1,6 @@
 <template name = "inventory">
- 
-  {{>inventory_menu}}
+ {{> menu}}
+ {{> Add_item}}
 
 
 
@@ -9,6 +9,81 @@
 
 
 </template>
+
+<template name = "Search">
+{{> esInput index = "category_search" id = "search" placeholder="predictive search"}}
+{{#esEach index="category_search"}}
+        {{ category}}
+    {{/esEach}}
+
+
+</template>
+
+
+<template name = "Add_item">
+
+  <form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add Item</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="category">Category:</label>  
+  <div class="col-md-5">
+  <input id="category" name="category" type="text" placeholder="Ex: Laptop, lighting, camera" class="form-control input-md" required="">
+  <table>
+  {{#each searchResults}}
+  <tr><td>{{ >searchResults}}</td></tr>
+  {{/each}}
+  </table>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="brand">Brand</label>  
+  <div class="col-md-5">
+  <input id="brand" name="brand" type="text" placeholder="Ex: Dell, Apple, Canon" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="model">Model:</label>  
+  <div class="col-md-5">
+  <input id="model" name="model" type="text" placeholder="Ex: Latitude e7740, Macbook " class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Select Multiple -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="permission">Permissions</label>
+  <div class="col-md-4">
+    <select id="permission" name="permission" class="form-control" multiple="multiple">
+      <option value="Authenticated">Everyone</option>
+      <option value="Admin">Administrators</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="addbutton"></label>
+  <div class="col-md-4">
+    <button id="addbutton" name="addbutton" class="btn btn-primary">Add item!</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+  
+
+</template>
+
 
 <template name="inventory_menu">
   <div class="navbar navbar-static-top">

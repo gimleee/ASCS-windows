@@ -8,4 +8,7 @@ insecure
 bootstrap
 iron:router
 blaze
+sayawan:pickadate
+matteodem:easy-search
+mrt:moment
 
