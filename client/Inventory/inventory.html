@@ -10,37 +10,29 @@
 
 </template>
 
-<template name = "Search">
-{{> esInput index = "category_search" id = "search" placeholder="predictive search"}}
-{{#esEach index="category_search"}}
-        {{ category}}
-    {{/esEach}}
-
-
-</template>
-
-
 <template name = "Add_item">
 
-  <form class="form-horizontal">
+  <form class="form-horizontal search">
 <fieldset>
 
 <!-- Form Name -->
 <legend>Add Item</legend>
 
 <!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="category">Category:</label>  
-  <div class="col-md-5">
-  <input id="category" name="category" type="text" placeholder="Ex: Laptop, lighting, camera" class="form-control input-md" required="">
-  <table>
-  {{#each searchResults}}
-  <tr><td>{{ >searchResults}}</td></tr>
-  {{/each}}
-  </table>
-  </div>
+<div class="btn-group btn-input">
+  <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+    <span data-bind="label">Ex: Dell, Apple, Canon</span> <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    {{#each get_categories}}
+     <li><a href="#">{{categories}}</a></li>
+    {{/each}}
+    <li class ="addcat"><a href="#" i><span class="glyphicon glyphicon-plus"></span></a></li>
+    <li><a href="#">Item 1</a></li>
+    <li><a href="#">Another item</a></li>
+    <li><a href="#">This is a longer item that will not fit properly</a></li>
+  </ul>
 </div>
-
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="brand">Brand</label>  

@@ -1,9 +1,45 @@
+<template name = "checkout-viewer">
+{{> menu}}
+{{> list}}
+</template>
+<template name = "search box">
+
+</template>
 <template name ="calendar">
 	
 
 
 </template>
 
+<template name ="list">
+<table class="table table-striped table-bordered">
+	<thead>
+	<tr>
+		<th> Created </th>
+		<th> Name </th>
+		<th> Category </th>
+		<th> Brand </th>
+		<th> Model </th>
+		<th> Last Checkout </th>
+		<th> # checkouts </th>
+	</tr>
+	</thead>
+	<tbody>
+	{{#each table_items}}
+	<tr>
+		<td> {{createdate}} </td>
+		<td> {{category}} </td>
+		<td> {{name}} </td>
+		<td> {{brand}} </td>
+		<td> {{model}} </td>
+		<td> {{lastcheck}} </td>
+		<td> {{numchecked}} </td>
+	</tr>
+	{{/each}}
+
+	</tbody>
+	</table>
+</template>
 <template name ="ShowDetail">
 	
 

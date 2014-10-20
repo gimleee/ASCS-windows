@@ -30,5 +30,7 @@ Meteor.methods({
 }
 });
 
+var add = {category: "Battlestar Galactica"};
+categories.insert(add);
 
 
