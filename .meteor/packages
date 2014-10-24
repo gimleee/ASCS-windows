@@ -9,8 +9,8 @@ iron:router
 blaze
 sayawan:pickadate
 mrt:moment
-matteodem:easy-search
 perak:fuzzy-search
 sergeyt:typeahead
 aslagle:reactive-table
+less
 mizzao:bootstrap-3

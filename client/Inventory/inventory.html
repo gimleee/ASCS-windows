@@ -1,6 +1,8 @@
 <template name = "inventory">
- {{> menu}}
- {{> Add_item}}
+ <header>{{> menu}}</header>
+
+
+ <body>{{> Add_item}}</body>
 
 
 
@@ -10,31 +12,42 @@
 
 </template>
 
-<template name = "Add_item">
-
-  <form class="form-horizontal search">
+<template name = "Add_item" class ="blue" >
+<div class = "positioning">
+<form class="add_item">
 <fieldset>
 
 <!-- Form Name -->
-<legend>Add Item</legend>
+<h1>Add Item </h1>
 
 <!-- Text input-->
 <div class="btn-group btn-input">
   <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
     <span data-bind="label">Ex: Dell, Apple, Canon</span> <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu" role="menu">
+  <ul class="dropdown-menu addcategory" role="menu">
     {{#each get_categories}}
      <li><a href="#">{{categories}}</a></li>
     {{/each}}
-    <li class ="addcat"><a href="#" i><span class="glyphicon glyphicon-plus"></span></a></li>
-    <li><a href="#">Item 1</a></li>
-    <li><a href="#">Another item</a></li>
-    <li><a href="#">This is a longer item that will not fit properly</a></li>
+    <li class="Addcat"><a href="#" i><span class="glyphicon glyphicon-plus"></span></a></li>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      {{#each get_categories}}
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{categories}}</a></li>
+    {{/each}}
+    <li role="presentation" class="divider"></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
   </ul>
 </div>
 <!-- Text input-->
-<div class="form-group">
+<!-- <div class="form-group">
   <label class="col-md-4 control-label" for="brand">Brand</label>  
   <div class="col-md-5">
   <input id="brand" name="brand" type="text" placeholder="Ex: Dell, Apple, Canon" class="form-control input-md" required="">
@@ -42,8 +55,8 @@
   </div>
 </div>
 
-<!-- Text input-->
-<div class="form-group">
+<! Text input-->
+<!-- <div class="form-group">
   <label class="col-md-4 control-label" for="model">Model:</label>  
   <div class="col-md-5">
   <input id="model" name="model" type="text" placeholder="Ex: Latitude e7740, Macbook " class="form-control input-md" required="">
@@ -51,8 +64,8 @@
   </div>
 </div>
 
-<!-- Select Multiple -->
-<div class="form-group">
+<!Select Multiple -->
+<!-- <div class="form-group">
   <label class="col-md-4 control-label" for="permission">Permissions</label>
   <div class="col-md-4">
     <select id="permission" name="permission" class="form-control" multiple="multiple">
@@ -60,19 +73,20 @@
       <option value="Admin">Administrators</option>
     </select>
   </div>
-</div>
+</div> -->
 
 <!-- Button -->
-<div class="form-group">
+<!-- <div class="form-group">
   <label class="col-md-4 control-label" for="addbutton"></label>
   <div class="col-md-4">
     <button id="addbutton" name="addbutton" class="btn btn-primary">Add item!</button>
   </div>
 </div>
+ -->
 
 </fieldset>
-</form>
-  
+</form> 
+</div>
 
 </template>
 
@@ -95,5 +109,26 @@
 
   
 
+
+</template>
+
+<template name ="Add_item2">
+<select class="selcat">
+  <option value="+"> + </option>
+  <option value="something"> something </option>
+</select>
+
+<div class="btn-group btn-input">
+  <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+    <span data-bind="label">Ex: Dell, Apple, Canon</span> <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu category" role="menu">
+    {{#each get_categories}}
+     <li><a href="#">{{categories}}</a></li>
+    {{/each}}
+    <li><a href="#">something else </a></li>
+    <li class="Addcat"><a href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
+  </ul>
+</div>
 
 </template>

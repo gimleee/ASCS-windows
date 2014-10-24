@@ -16,26 +16,31 @@ Session.setDefault("addcatdialog", false);
 
 
 Template.inventory.events({
-  'click #addbutton' : function(click,tmpl)
-  {
-  	var item_size = items.find().count();
+    'click #addcategory' : function(e, tmpl)
+    {
+      console.log(tmpl.find('#addcategory').value)
+    }
+  // 'click #addbutton' : function(click,tmpl)
+  // {
+  // 	var item_size = items.find().count();
   	
-  	
-  	var addthis = {
-      createdate: new Date(),
-  		name: tmpl.find('#model').value + item_size,
-  		category: tmpl.find('#category').value,
-  		brand: tmpl.find('#brand').value,
-  		model: tmpl.find('#model').value,
+  // 	if(tmpl.find('#model').value && tmpl.find('#category').value && tmpl.find('#brand').value)
+  //   {
+  // 	var addthis = {
+  //     createdate: new Date(),
+  // 		name: tmpl.find('#model').value + item_size,
+  // 		category: tmpl.find('#category').value,
+  // 		brand: tmpl.find('#brand').value,
+  // 		model: tmpl.find('#model').value,
   	
 
-  		lastcheckout : "never",
-  		timescheckedout: 0
-  	}
-    var id = items.insert(addthis);
-   //  console.log(id)
-  	// console.log("item size is now " + items.find().count());
-  },
+  // 		lastcheckout : "never",
+  // 		timescheckedout: 0
+  // 	}
+  //   var id = items.insert(addthis);
+  // }
+
+  // },
   
   // 'keypress #category' : function(e, tmpl)
   // {
@@ -45,12 +50,13 @@ Template.inventory.events({
 
   // }
 
-  'onclick .addcat' : function(e, tmpl)
-  {console.log("You called addcat");}
+  // 'change #category' : function(e, tmpl)
+  // {console.log("HIIIIIIIIIIIII");}
+
 
 })
 
-Template.Add_item.events({
+Template.Add_item2.events({
 
 
 
@@ -73,7 +79,8 @@ Template.Add_item.get_models = function()
   return models.find();
 }
 Template.Add_item.helpers({
-  categories: function(){return this.category;},
+  get_categories: function(){return categories.find()},
+  categories: function(){console.log(this.category);return this.category;},
   brands: function(){return this.brand;},
   models: function(){return this.model;}
   // addcat: function(){Session.set("",)}
