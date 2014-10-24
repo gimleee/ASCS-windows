@@ -62,7 +62,7 @@ Template.Add_item2.events({
 
 
 })
-
+Template.inventory.helpers
 
 Template.Add_item.get_categories = function()
 {
@@ -80,7 +80,7 @@ Template.Add_item.get_models = function()
 }
 Template.Add_item.helpers({
   get_categories: function(){return categories.find()},
-  categories: function(){console.log(this.category);return this.category;},
+  categories: function(){console.log(this);return this.category;},
   brands: function(){return this.brand;},
   models: function(){return this.model;}
   // addcat: function(){Session.set("",)}
