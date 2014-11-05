@@ -1,6 +1,4 @@
-Meteor.publish('checkout_items', function(role)
-{
+Meteor.publish('allItems', function(){
 	return items.find();
-});
-
+})
 

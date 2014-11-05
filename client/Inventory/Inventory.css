@@ -5,3 +5,26 @@ body, header  {background-color: #C2C2C2;
 
 .glyphicon-plus{position: relative;
                 text-align: center;}
+
+/*.category, .brand, .model{
+    height: 10px;
+    width: 50%;
+    padding-top:20px;
+    padding-bottom:20px;
+
+}*/
+
+.Add_button {margin-top: 20px;}
+
+.alert_add {margin-top: 20px;
+            border-radius: 5px;
+            position: absolute;}
+
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 15px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+        }
