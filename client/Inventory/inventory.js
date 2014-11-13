@@ -14,6 +14,7 @@ Template.inventory.rendered = function()
 {
   $('.category-select').select2('focus')
   $('.alert_add').hide();
+  $('.popover').popover();
   
 
 }
@@ -49,8 +50,14 @@ Template.inventory.events({
       {
          if(array[i] === "+")
       {
-        add_dialog(null, null, null);
         $('.category-select').select2('val', "");
+        var popover_options = {
+          target: '.category-select',
+          placement: 'right'
+
+        }
+        $('#cat_popover').modalPopover({placement: 'right'});
+        $('#cat_popover').modalPopover('show');
 
       }
       }
@@ -79,9 +86,17 @@ Template.inventory.events({
         });
     },
         'change .brand-select': function(){
-      if($('.brand-select').select2('data').text === "+")
-        Session.set("add_dialog", true);
-    },
+      var array = $('.brand-select').select2('val');
+      for(i = 0; i < array.length; i++)
+      {
+         if(array[i] === "+")
+      {
+        add_dialog(null, null, null);
+        $('.brand-select').select2('val', "");
+
+      }
+    }
+  },
 
         'click .model-select': function(){
           
@@ -106,9 +121,18 @@ Template.inventory.events({
         
     },
        'change .model-select': function(){
-      if($('.model-select').select2('data').text === "+")
-        Session.set("add_dialog", true);
-    },
+      var array = $('.model-select').select2('val');
+
+      for(i = 0; i < array.length; i++)
+      {
+         if(array[i] === "+")
+      {
+        add_dialog(null, null, null);
+        $('.model-select').select2('val', "");
+
+      }
+    }
+  },
         'click .Add_button': function(){
           if($('.category-select').select2('val').length && $('.brand-select').select2('data').text && $('.model-select').select2('data').text)
           {
@@ -146,7 +170,13 @@ Template.inventory.events({
 
 
 Template.Add_item.helpers({
-  show_add_dialog: function() {return Session.get("add_dialog");},
+  cat: function(){
+    if(Session.get("lastaddeditem") != (null || "+"))
+  {
+    var temp = Session.get("lastaddeditem");
+    return temp.category;
+  }
+},
   add_alert: function() {
   if(Session.get("lastaddeditem") != null)
   {
@@ -154,7 +184,7 @@ Template.Add_item.helpers({
     return "Item " + temp_item.name + " has been succesfully added!";
   }
   else 
-    return "";
+    return "No itme has been added :/";
   }
 })
 
@@ -163,18 +193,21 @@ function format(selection){
   return selection.text;
 }
 
-
 function add_dialog(category, brand, model){
+      var temp = Session.get("lastaddeditem");
   bootbox.dialog({
+    
     Title: "Add new category, brand, model",
     message:'<div class="row">  ' +
                     '<div class="col-md-12"> ' +
                     '<form class="form-horizontal"> ' +
                     '<div class="form-group"> ' +
-                    '<label class="col-md-4 control-label" for="category">Category</label> ' +
+                    '<label class="col-md-4 control-label" for="category">Category</label> ' + 'category' +  +
                     '<div class="col-md-4"> ' +
                     '<input id="name" name="category" type="text" placeholder="Your name" class="form-control input-md"> ' +
                     '<span type="hidden" class="category-select btn btn-default"></span>' + 
+                    '<span type="hidden" class="brand-select btn btn-default"></span>' +
+                    '<span type ="hidden"  class="model-select btn btn-default"></span>' +
                     '<span class="help-block">Here goes your name</span> </div> ' +
                     '</div> ' +
                     '<div class="form-group"> ' +
@@ -187,5 +220,15 @@ function add_dialog(category, brand, model){
                     '</div> ' +
                     '</div> </div>' +
                     '</form> </div>  </div>',
+    buttons: {main: {
+                      label: "Add!",
+                      className: "btn-primary btn-xlarge",
+                      callback: function(){
+                        Example.show("Success!");
+                      }
+
+
+
+    }}
   })
 }

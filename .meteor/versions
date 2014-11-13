@@ -7,6 +7,7 @@ binary-heap@1.0.1
 blaze-tools@1.0.1
 blaze@2.0.3
 boilerplate-generator@1.0.1
+bootstrap@1.0.1
 callback-hook@1.0.1
 check@1.0.2
 ctl-helper@1.0.4
@@ -26,9 +27,9 @@ iron:controller@1.0.0
 iron:core@1.0.0
 iron:dynamic-template@1.0.0
 iron:layout@1.0.0
-iron:location@1.0.0
+iron:location@1.0.1
 iron:middleware-stack@1.0.0
-iron:router@1.0.0
+iron:router@1.0.1
 iron:url@1.0.0
 jquery@1.0.1
 json@1.0.1
@@ -48,6 +49,7 @@ mrt:moment@2.8.1
 natestrauser:select2@3.5.1
 observe-sequence@1.0.3
 ordered-dict@1.0.1
+peppelg:bootstrap-3-modal@1.0.0
 perak:fuzzy-search@0.1.9
 random@1.0.1
 reactive-dict@1.0.4
